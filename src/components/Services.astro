@@ -1,0 +1,47 @@
+---
+import SectionContainer from './SectionContainer.astro';
+import Service from './Service.astro';
+---
+
+<SectionContainer>
+  <h2>Nuestros Servicios</h2>
+  <p>Soluciones completas para su flota. Ofrecemos una amplia gama de servicios especializados en sistemas de climatización para todo tipo de unidades de transporte.</p>
+
+  <div class="services-grid">
+    <Service icon="/reparacion.png" title="Reparación de Sistemas" description="Diagnóstico y reparación completa de sistemas de aire acondicionado en todo tipo de colectivos." />
+    <Service icon="/mantenimiento.png" title="Mantenimiento Preventivo" description="Programas de mantenimiento regular para evitar fallas y prolongar la vida útil del equipo." />
+    <Service icon="/temperatura.png" title="Control de Temperatura" description="Calibración y ajuste de sensores y controles de temperatura para un funcionamiento óptimo." />
+    <Service icon="/reemplazo.png" title="Reemplazo de Componentes" description="Sustitución de compresores, condensadores, evaporadores y otros componentes críticos." />
+    <Service icon="/recarga.png" title="Recarga de Gas Refrigerante" description="Servicio de recarga y control de fugas de gas refrigerante con equipos de última generación." />
+    <Service icon="/diagnostico.png" title="Diagnóstico de Averías" description="Detección precisa de fallas mediante equipos electrónicos avanzados." />
+    <Service icon="/certificacion.png" title="Certificación de Sistemas" description="Inspección y certificación de sistemas de climatización cumpliendo normativas vigentes." />
+    <Service icon="/emergencia.png" title="Atención de Emergencias" description="Servicio técnico de urgencia disponible para resolver imprevistos en su flota." />
+  </div>
+
+  <div class="button-container">
+    <a href="/consultar" class="button">Consultar por Servicios</a>
+  </div>
+</SectionContainer>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .button {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+</style>
