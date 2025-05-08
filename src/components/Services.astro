@@ -1,47 +1,92 @@
 ---
+import { Icon } from 'astro-icon/components';
 import SectionContainer from './SectionContainer.astro';
-import Service from './Service.astro';
+
+interface Service {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const services: Service[] = [
+  {
+    icon: "lucide:air-vent",
+    title: "Reparación de Sistemas",
+    description: "Diagnóstico y reparación completa de sistemas de aire acondicionado en todo tipo de colectivos."
+  },
+  {
+    icon: "lucide:wrench",
+    title: "Mantenimiento Preventivo",
+    description: "Programas de mantenimiento regular para evitar fallas y prolongar la vida útil del equipo."
+  },
+  {
+    icon: "lucide:thermometer",
+    title: "Control de Temperatura",
+    description: "Calibración y ajuste de sensores y controles de temperatura para un funcionamiento óptimo."
+  },
+  {
+    icon: "lucide:wrench",
+    title: "Reemplazo de Componentes",
+    description: "Sustitución de compresores, condensadores, evaporadores y otros componentes críticos."
+  },
+  {
+    icon: "lucide:gauge",
+    title: "Recarga de Gas Refrigerante",
+    description: "Servicio de recarga y control de fugas de gas refrigerante con equipos de última generación."
+  },
+  {
+    icon: "lucide:alert-circle",
+    title: "Diagnóstico de Averías",
+    description: "Detección precisa de fallas mediante equipos electrónicos avanzados."
+  },
+  {
+    icon: "lucide:clipboard-check",
+    title: "Certificación de Sistemas",
+    description: "Inspección y certificación de sistemas de climatización cumpliendo normativas vigentes."
+  },
+  {
+    icon: "lucide:clock",
+    title: "Atención de Emergencias",
+    description: "Servicio técnico de urgencia disponible para resolver imprevistos en su flota."
+  }
+];
 ---
 
 <SectionContainer>
-  <h2>Nuestros Servicios</h2>
-  <p>Soluciones completas para su flota. Ofrecemos una amplia gama de servicios especializados en sistemas de climatización para todo tipo de unidades de transporte.</p>
-
-  <div class="services-grid">
-    <Service icon="/reparacion.png" title="Reparación de Sistemas" description="Diagnóstico y reparación completa de sistemas de aire acondicionado en todo tipo de colectivos." />
-    <Service icon="/mantenimiento.png" title="Mantenimiento Preventivo" description="Programas de mantenimiento regular para evitar fallas y prolongar la vida útil del equipo." />
-    <Service icon="/temperatura.png" title="Control de Temperatura" description="Calibración y ajuste de sensores y controles de temperatura para un funcionamiento óptimo." />
-    <Service icon="/reemplazo.png" title="Reemplazo de Componentes" description="Sustitución de compresores, condensadores, evaporadores y otros componentes críticos." />
-    <Service icon="/recarga.png" title="Recarga de Gas Refrigerante" description="Servicio de recarga y control de fugas de gas refrigerante con equipos de última generación." />
-    <Service icon="/diagnostico.png" title="Diagnóstico de Averías" description="Detección precisa de fallas mediante equipos electrónicos avanzados." />
-    <Service icon="/certificacion.png" title="Certificación de Sistemas" description="Inspección y certificación de sistemas de climatización cumpliendo normativas vigentes." />
-    <Service icon="/emergencia.png" title="Atención de Emergencias" description="Servicio técnico de urgencia disponible para resolver imprevistos en su flota." />
-  </div>
-
-  <div class="button-container">
-    <a href="/consultar" class="button">Consultar por Servicios</a>
+  <div class="absolute left-0 top-0 w-72 h-72 bg-ac-blue/5 rounded-full blur-3xl"></div>
+  <div class="absolute right-0 bottom-0 w-96 h-96 bg-ac-blue/5 rounded-full blur-3xl"></div>
+  
+  <div class="services-container" id="Services">
+    <div class="text-center max-w-2xl mx-auto mb-16 ">
+      <span class="inline-block px-3 py-1 bg-ac-blue/10 text-ac-blue-dark rounded-full text-sm font-medium mb-4">
+        Nuestros Servicios
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Soluciones Completas para su Flota</h2>
+      <p class="text-muted-foreground">
+        Ofrecemos una amplia gama de servicios especializados en sistemas de climatización para todo tipo de unidades de transporte.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <div class="glass-card p-6 transition-all duration-300 hover:shadow-md hover:translate-y-[-5px] ">
+          <div class="w-12 h-12 rounded-lg bg-ac-blue/10 flex items-center justify-center mb-4 text-ac-blue">
+            <Icon name={service.icon} class="h-6 w-6" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+          <p class="text-muted-foreground">{service.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-16 text-center animate-on-scroll">
+      <a href="#contact" class="btn-primary inline-flex">
+        Consultar por Servicios
+      </a>
+    </div>
   </div>
 </SectionContainer>
 
 <style>
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
 
-  .button-container {
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  .button {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-  }
 </style>

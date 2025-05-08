@@ -1,18 +1,24 @@
 ---
+import { Icon } from "astro-icon/components"
+
+Icon
+
 ---
-<nav>
-  <div class="logo">
-    <img src="/airefix-logo.png" alt="AireFix Logo" />
-    <span>AireFix</span>
-  </div>
-  <ul>
-    <li><a href="/">Inicio</a></li>
-    <li><a href="/servicios">Servicios</a></li>
-    <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
-    <li><a href="/contacto">Contacto</a></li>
-    <li><a href="/solicitar-servicio" class="cta">Solicitar Servicio</a></li>
-  </ul>
-</nav>
+<header class="z-50 transition-all duration-300 ease-in-out backdrop-blur-md py-4">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="logo">
+      <Icon name="lucide:air-vent" class="h-8 w-8 mr-3" />
+      <span>Aire Oski </span>
+    </div>
+    <ul>
+      <li><a href="/#Inicio">Inicio</a></li>
+      <li><a href="/#Services">Servicios</a></li>
+      <li><a href="#About">Sobre Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#solicitar-servicio" class="cta">Solicitar Servicio</a></li>
+    </ul>
+  </nav>
+</header>
 
 <style>
   nav {
@@ -20,7 +26,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: white; /* Asumiendo fondo blanco */
+    background-color: rgba(78, 78, 78, 0.301); /* Asumiendo fondo blanco */
   }
 
   .logo {
@@ -50,4 +56,67 @@
     background-color: #007bff; /* Color del botón "Solicitar Servicio" */
     color: white;
   }
+  
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  nav {
+  
+  }
+
+  @keyframes nav-shadown {
+    0% {
+      background-color: transparent;
+    }
+    to {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-blue-500")
+            } else {
+              item.classList.remove("text-blue-500")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
