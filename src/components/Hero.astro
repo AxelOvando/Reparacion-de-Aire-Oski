@@ -1,48 +1,49 @@
 ---
+import { Icon } from 'astro-icon/components';
+import SectionContainer from './SectionContainer.astro';
 ---
-<section class="hero">
-  <div class="hero-content">
-    <h1>Reparación de Aire Acondicionado para Colectivos</h1>
-    <p>Brindamos soluciones rápidas y efectivas para mantener operativos los sistemas de climatización de su flota de transporte. Servicio de calidad con técnicos certificados.</p>
+
+<section class="relative min-h-screen flex items-center overflow-hidden ">
+  <div class="absolute inset-0 bg-gradient-to-b from-ac-blue-light/30 to-transparent z-0"></div>
+  <div class="absolute right-0 top-1/4 w-64 h-64 bg-ac-blue/10 rounded-full blur-3xl"></div>
+  <div class="absolute left-0 bottom-1/4 w-72 h-72 bg-ac-blue/5 rounded-full blur-3xl"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  md:py-24 grid md:grid-cols-2 gap-12 items-center relative z-10">
+  <div class="">
+    <span class="">
+    <h1 class="text-4xl md:text-5xl lg:*:text-6xl font-bold text-balance">Reparación de Aire Acondicionado para <span class="text-cyan-700">Colectivos</span></h1>
+    <p class="text-lg text-muted-foreground max-w-xl animate-on-scroll delay-100">Brindamos soluciones rápidas y efectivas para mantener operativos los sistemas de climatización de su flota de transporte. Servicio de calidad con técnicos certificados.</p>
+    </span>
     <div class="hero-buttons">
       <a href="/presupuesto" class="button primary">Solicitar Presupuesto</a>
       <a href="/servicios" class="button secondary">Ver Servicios</a>
     </div>
     <div class="hero-features">
-      <div><img src="/todas-marcas.png" alt="Todas las Marcas" /> Todas las marcas</div>
-      <div><img src="/tecnicos-certificados.png" alt="Técnicos Certificados" /> Técnicos certificados</div>
-      <div><img src="/garantia-total.png" alt="Garantía Total" /> Garantía total</div>
+      <div class="hero-icons"><Icon name="lucide:bus" class="size-20" /></div> <span class="text-sm">Todas las marcas</span>
+      <div class="hero-icons"><Icon name="lucide:wrench" class="size-20" /></div> <span> Técnicos certificados</span>
+      <div class="hero-icons"><Icon name="lucide:thumbs-up" class="size-20" /></div> <span> Garantía total</span>
     </div>
     <div class="hero-explore">
-      <a href="/explorar">Explorar <img src="/arrow-down.png" alt="Flecha Abajo" /></a>
+      <a href="/explorar" class="flex flex-col">Explorar <Icon name="lucide:chevron-down" class="size-20 flex" /></a>
     </div>
   </div>
+  <!-- Hero image -->
   <div class="hero-image">
     <img src="/autobus.jpg" alt="Autobús" />
   </div>
+</div>
 </section>
+
+
 
 <style>
   .hero {
+    
+    background-color: #007bff00;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 2rem;
-    background-color: #f0f0f0; /* Ajusta el color de fondo */
-  }
-
-  .hero-content {
-    max-width: 50%;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    
   }
 
   .hero-buttons {
@@ -69,18 +70,16 @@
 
   .hero-features {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 20px;
+    align-items: center;
+    margin-top: calc(var(--spacing) * 0.5) /* 0.125rem = 2px */;
+    margin-bottom: 20px;
   }
 
   .hero-features div {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-features img {
-    height: 30px; /* Ajusta el tamaño de los iconos */
+    gap: 20px;
   }
 
   .hero-explore {
@@ -88,7 +87,6 @@
   }
 
   .hero-explore a {
-    display: inline-flex;
     align-items: center;
     text-decoration: none;
     color: #333;
@@ -99,11 +97,11 @@
   }
 
   .hero-image {
-    max-width: 45%;
+    
   }
 
   .hero-image img {
-    width: 100%;
+    
     border-radius: 8px;
   }
 </style>

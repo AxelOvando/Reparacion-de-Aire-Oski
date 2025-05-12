@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
-
+import About from '../components/About.astro';
 ---
 
 
@@ -17,7 +17,7 @@ import Services from '../components/Services.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class="min-h-screen">
 		<Navbar>
 		<slot />
 		</Navbar>
@@ -27,6 +27,9 @@ import Services from '../components/Services.astro';
     <Services>
       <slot />
     </Services>
+    <About>
+      <slot />
+    </About>
 		<Footer>
 			<slot />
 		</Footer>
@@ -37,8 +40,9 @@ import Services from '../components/Services.astro';
 <style>
 	html,
 	body {
-		margin: 0;
+		margin: auto;
 		width: 100%;
 		height: 100%;
+    justify-content: center;
 	}
 </style>

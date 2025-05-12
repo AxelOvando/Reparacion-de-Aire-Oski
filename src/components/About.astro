@@ -1,0 +1,61 @@
+---
+// components/About.astro
+import { Icon } from 'astro-icon/components';
+import '../styles/global.css';
+---
+
+<section id="About" class="about-section">
+  <div class="about-container">
+    <div class="about-left">
+      <span class="section-subtitle">Sobre Nosotros</span>
+      <h2>Expertos en Climatización para Transporte</h2>
+      <p>Somos una empresa especializada en la reparación y mantenimiento de sistemas de aire acondicionado para colectivos y transporte de pasajeros. Con más de 15 años de experiencia en el sector, garantizamos un servicio rápido, eficiente y de alta calidad.</p>
+      <ul class="about-features">
+        <li><Icon name="lucide:check" class="check" /> Utilización de repuestos originales</li>
+        <li><Icon name="lucide:check" class="check" /> Técnicos con certificación oficial de fábrica</li>
+        <li><Icon name="lucide:check" class="check" /> Diagnóstico preciso con equipamiento especializado</li>
+        <li><Icon name="lucide:check" class="check" /> Garantía por escrito en todos nuestros trabajos</li>
+        <li><Icon name="lucide:check" class="check" /> Servicio a domicilio en toda la región</li>
+        <li><Icon name="lucide:check" class="check" /> Respuesta rápida ante urgencias</li>
+      </ul>
+      <a href="/contacto" class="button primary">Contáctenos</a>
+    </div>
+    <div class="about-right">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Años de Experiencia</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Técnicos Certificados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Clientes Satisfechos</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2000+</span>
+          <span class="stat-label">Unidades Atendidas</span>
+        </div>
+      </div>
+      <div class="quality-info">
+        <div class="quality-card">
+          <img src="/certificado.png" alt="Certificación" />
+          <h3>Certificación de Calidad</h3>
+          <p>Servicio certificado bajo normas internacionales</p>
+        </div>
+        <div class="quality-card">
+          <img src="/equipo.png" alt="Equipo" />
+          <h3>Equipo Especializado</h3>
+          <p>Personal técnico con formación continua</p>
+        </div>
+        <div class="quality-card">
+          <img src="/emergencia.png" alt="Urgencia" />
+          <h3>Servicio de Urgencia</h3>
+          <p>Respuesta rápida para minimizar tiempos de parada</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
