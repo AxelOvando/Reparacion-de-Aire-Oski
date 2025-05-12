@@ -1,0 +1,23 @@
+[33mcommit e53176b56b02caf05a090b0ffc81dbb8de6de9b0[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: AxelOvando <axel.a.ovando@gmail.com>
+Date:   Thu May 8 18:30:44 2025 -0300
+
+    Se agrego About, Se arreglo iconos de Hero y Service
+
+[33mcommit a02e8478ec64c7e87f7a4c15c2b4a1d0b239c3c8[m
+Author: Cristian Ovando <cristian.ovando@alliesystems.com>
+Date:   Sat Apr 12 15:13:08 2025 -0300
+
+    Add .netlify to .gitignore
+
+[33mcommit 358d261f7a4eae4a1c9949fb32bf07039ff54ea3[m
+Author: AxelOvando <axel.a.ovando@gmail.com>
+Date:   Thu Mar 27 23:55:23 2025 -0300
+
+    Se agrego el Netlify
+
+[33mcommit da0a2621978ebb084d655dc250f09425c481115d[m
+Author: AxelOvando <axel.a.ovando@gmail.com>
+Date:   Thu Mar 27 12:53:48 2025 -0300
+
+    Se agrega el Proyecto
