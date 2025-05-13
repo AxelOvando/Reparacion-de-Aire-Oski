@@ -3,54 +3,74 @@ import { Icon } from 'astro-icon/components';
 import SectionContainer from './SectionContainer.astro';
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden ">
-  <div class="absolute inset-0 bg-gradient-to-b from-ac-blue-light/30 to-transparent z-0"></div>
-  <div class="absolute right-0 top-1/4 w-64 h-64 bg-ac-blue/10 rounded-full blur-3xl"></div>
-  <div class="absolute left-0 bottom-1/4 w-72 h-72 bg-ac-blue/5 rounded-full blur-3xl"></div>
+<section class="relative min-h-screen flex items-center overflow-hidden pt-2 pb-40 " id="Hero">
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  md:py-24 grid md:grid-cols-2 gap-12 items-center relative z-10">
-  <div class="">
-    <span class="">
-    <h1 class="text-4xl md:text-5xl lg:*:text-6xl font-bold text-balance">Reparación de Aire Acondicionado para <span class="text-cyan-700">Colectivos</span></h1>
-    <p class="text-lg text-muted-foreground max-w-xl animate-on-scroll delay-100">Brindamos soluciones rápidas y efectivas para mantener operativos los sistemas de climatización de su flota de transporte. Servicio de calidad con técnicos certificados.</p>
-    </span>
-    <div class="hero-buttons">
-      <a href="/presupuesto" class="button primary">Solicitar Presupuesto</a>
-      <a href="/servicios" class="button secondary">Ver Servicios</a>
+  <!-- Fondo Imagen -->
+    <div class="absolute inset-0 bg-gradient-to-b from-ac-blue-light/30 to-transparent z-0"></div>
+    <div class="absolute right-0 top-1/4 w-64 h-64 bg-ac-blue/10 rounded-full blur-3xl"></div>
+    <div class="absolute left-0 bottom-1/4 w-72 h-72 bg-ac-blue/5 rounded-full blur-3xl"></div>
+
+    <!-- Titulo y Descripcion -->
+  <div class="section-container grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <div class="space-y-6 md:space-y-8">
+      <span class="inline-block px-3 py-1 bg-ac-blue/10 text-ac-blue-dark rounded-full text-sm font-medium ">Servicio Tecnico Especializado</span>
+      <h1 class="text-4xl md:text-5xl lg:*:text-6xl font-bold text-balance">Reparación de Aire Acondicionado para <span class="text-ac-blue">Colectivos</span></h1>
+      <p class="text-lg text-muted-foreground max-w-xl animate-on-scroll delay-100">Brindamos soluciones rápidas y efectivas para mantener operativos los sistemas de climatización de su flota de transporte. Servicio de calidad con técnicos certificados.</p>
+      </span>
+
+      <!-- Botones -->
+      <div class="flex flex-col sm:flex-row gap-4 animate-on-scroll delay-200">
+        <a href="/presupuesto" class="btn-primary">Solicitar Presupuesto</a>
+        <a href="#Services" class="btn-primary">Ver Servicios</a>
+      </div>
+      
+      <!-- SVG -->
+      <div class="flex items-center gap-8 pt-6 animate-on-scroll delay-300">
+        <div class="flex items-center gap-2">
+          <div class="hero-icons">
+            <Icon name="lucide:bus" class="size-20" />
+          </div> 
+          <span class="text-sm">Todas las marcas</span>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <div class="hero-icons">
+          
+            <Icon name="lucide:wrench" class="size-20" />
+          </div>
+          <span class="text-sm"> Técnicos certificados</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="hero-icons">
+            <Icon name="lucide:thumbs-up" class="size-20" />
+          </div>
+          <span class="text-sm"> Garantía total</span>
+        </div>
+      </div>
+
     </div>
-    <div class="hero-features">
-      <div class="hero-icons"><Icon name="lucide:bus" class="size-20" /></div> <span class="text-sm">Todas las marcas</span>
-      <div class="hero-icons"><Icon name="lucide:wrench" class="size-20" /></div> <span> Técnicos certificados</span>
-      <div class="hero-icons"><Icon name="lucide:thumbs-up" class="size-20" /></div> <span> Garantía total</span>
+ 
+    <!-- Hero image -->
+    <div class="relative flex justify-center animate-on-scroll">
+      <div class="w-full h-auto relative glass-card overflow-hidden aspect-[4/3] rounded-2xl shadow-lg animate-float">
+        <div class="w-full h-full bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')]">
+        </div>
+      </div>
     </div>
-    <div class="hero-explore">
-      <a href="/explorar" class="flex flex-col">Explorar <Icon name="lucide:chevron-down" class="size-20 flex" /></a>
-    </div>
+    <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-ac-blue/30 rounded-lg blur-xl animate-pulse-subtle"></div>
+    <div class="absolute -top-5 -right-5 w-24 h-24 bg-ac-blue/20 rounded-full blur-xl"></div>
   </div>
-  <!-- Hero image -->
-  <div class="hero-image">
-    <img src="/autobus.jpg" alt="Autobús" />
+
+  <!--Explorar -->
+  <div class="absolute bottom-10 left-2/4 transform -translate-x-1/2 animate-bounce">
+    <a href="#Services" class="flex flex-col items-center text-sm text-muted-foreground/60 hover:text-ac-blue transition-colors "><span class="mb-2">Explorar</span> <Icon name="lucide:chevron-down" class="size-20" /></a>
   </div>
-</div>
+  
 </section>
 
 
 
 <style>
-  .hero {
-    
-    background-color: #007bff00;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
 
   .button {
     padding: 1rem 2rem;
@@ -82,26 +102,5 @@ import SectionContainer from './SectionContainer.astro';
     gap: 20px;
   }
 
-  .hero-explore {
-    text-align: center;
-  }
 
-  .hero-explore a {
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-  }
-
-  .hero-explore img {
-    height: 20px; /* Ajusta el tamaño de la flecha */
-  }
-
-  .hero-image {
-    
-  }
-
-  .hero-image img {
-    
-    border-radius: 8px;
-  }
 </style>

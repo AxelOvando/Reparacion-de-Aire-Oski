@@ -4,20 +4,25 @@ import { Icon } from "astro-icon/components"
 Icon
 
 ---
-<header class="z-50 transition-all duration-300 ease-in-out backdrop-blur-md py-4">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="logo">
-      <Icon name="lucide:air-vent" class="h-8 w-8 mr-3" />
-      <span>Aire Oski </span>
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out backdrop-blur-md ">
+  <div class="max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Logo  -->
+    <div class="logo ">
+      <div class="flex justify-between items-center py-4">
+      <Icon name="lucide:air-vent" class="h-8 w-8 animate-pulse-subtle" />
+      <span class="text-xl font-display font-semibold text-foreground pl-5">Aire Oski </span>
     </div>
-    <ul>
-      <li><a href="/#Inicio">Inicio</a></li>
-      <li><a href="/#Services">Servicios</a></li>
-      <li><a href="#About">Sobre Nosotros</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a href="#solicitar-servicio" class="cta">Solicitar Servicio</a></li>
-    </ul>
-  </nav>
+    <!-- Barra de Navegacion -->
+    <nav class="hidden md:flex items-center space-x-8">
+        <a href="#Hero" class="text-sm font-medium text-foreground/80 hover:text-ac-blue transition-colors">Inicio</a>
+        <a href="#Services" class="text-sm font-medium text-foreground/80 hover:text-ac-blue transition-colors">Servicios</a>
+        <a href="#About" class="text-sm font-medium text-foreground/80 hover:text-ac-blue transition-colors">Sobre Nosotros</a>
+        <a href="#contacto" class="text-sm font-medium text-foreground/80 hover:text-ac-blue transition-colors">Contacto</a>
+        <!--Boton -->
+        <a href="#solicitar-servicio" class="cta">Solicitar Servicio</a>
+    </nav>
+    </div>
+  </div>
 </header>
 
 <style>
@@ -26,23 +31,13 @@ Icon
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(78, 78, 78, 0.301); /* Asumiendo fondo blanco */
+    
   }
 
   .logo {
     display: flex;
     align-items: center;
-  }
-
-  .logo img {
-    height: 40px; /* Ajusta el tamaño del logo */
-    margin-right: 1rem;
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
+    justify-content: space-between;
   }
 
   a {
@@ -50,6 +45,12 @@ Icon
     color: black; /* Color del texto */
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  a:hover {
+    transform: translateY(1px);
   }
 
   .cta {
@@ -57,14 +58,11 @@ Icon
     color: white;
   }
   
-  nav {
+  header {
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-  }
-
-  nav {
-  
+    
   }
 
   @keyframes nav-shadown {
@@ -74,49 +72,24 @@ Icon
     to {
       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      
     }
   }
 </style>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
-
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
-            } else {
-              item.classList.remove("text-blue-500")
-            }
-          })
-        }
-      })
-    }
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section)
-        })
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
-    }
-  })
+    });
+  });
 </script>
